@@ -325,14 +325,65 @@
     },
     "model": {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "461cf9b82e1410615fcf5dcbc4ff65e41ca9e08f6b3c0e13c969d894ace74f2f"
+      "sha256": "8e6edba8b4ec768f7b7e2d2fe2671e36510f66933724d0be94e05501a45fa83d"
     },
-    "controlBindings": {}
+    "controlBindings": {
+      "gear": "nosegear_node",
+      "flaps": "maingearL_node",
+      "elevator": "maingearR_node",
+      "azimuth": "nose_node"
+    },
+    "animation": {
+      "schema": "transform-v1",
+      "controls": {
+        "gear": {
+          "node": "nosegear_node",
+          "axis": "y",
+          "input": "gearState",
+          "rangeDeg": [
+            -85,
+            0
+          ],
+          "smoothingSec": 8
+        },
+        "flaps": {
+          "node": "maingearL_node",
+          "axis": "y",
+          "input": "gearState",
+          "rangeDeg": [
+            -85,
+            0
+          ],
+          "smoothingSec": 8
+        },
+        "elevator": {
+          "node": "maingearR_node",
+          "axis": "y",
+          "input": "gearState",
+          "rangeDeg": [
+            -85,
+            0
+          ],
+          "smoothingSec": 8
+        },
+        "azimuth": {
+          "node": "nose_node",
+          "axis": "y",
+          "input": "gearState",
+          "continuous": false,
+          "rangeDeg": [
+            0,
+            12.5
+          ],
+          "smoothingSec": 6
+        }
+      }
+    }
   },
   "assets": [
     {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "461cf9b82e1410615fcf5dcbc4ff65e41ca9e08f6b3c0e13c969d894ace74f2f"
+      "sha256": "8e6edba8b4ec768f7b7e2d2fe2671e36510f66933724d0be94e05501a45fa83d"
     }
   ]
 }
