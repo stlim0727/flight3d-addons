@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "prNumber": 5,
-  "headSha": "6e5707afb64df813c3f2505f1d9b04cbf3b48e07",
+  "headSha": "c3139d1a62fffd6716738e1c6bf3201c8d145783",
   "ciPassed": true,
   "checkName": "validate-addons",
-  "generatedAt": "2026-11-27T08:49:28.261Z",
+  "generatedAt": "2026-11-27T09:12:49.515Z",
   "catalog": {
     "schemaVersion": 1,
     "addons": [
@@ -42,7 +42,7 @@
         "publisher": "stlim0727",
         "compatible": true,
         "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-5/stlim0727/aircraft/concorde/addon.json",
-        "sha256": "5dc9ee5f2033dca2e619fab3c59518a47f857a383c4fccd18fd213d7fc034ee8"
+        "sha256": "a0319508fe4b6d7750ea2e8c35e019e41870af754b16e3c2d16aedb6f02cd595"
       }
     ]
   }
