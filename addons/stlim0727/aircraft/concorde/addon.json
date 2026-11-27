@@ -10,7 +10,7 @@
   },
   "dependencies": [],
   "license": "CC-BY-4.0",
-  "attribution": "Concorde supersonic airliner addon by stlim0727",
+  "attribution": "Concorde 3D model by Henry Chi (CC-BY-4.0, Sketchfab); addon integration by stlim0727",
   "aircraft": {
     "id": "concorde",
     "physics": {
@@ -319,71 +319,14 @@
     },
     "model": {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "28688a542de24483b121980e6280b29d2474ac273b8e76f92279f396027c8044"
+      "sha256": "461cf9b82e1410615fcf5dcbc4ff65e41ca9e08f6b3c0e13c969d894ace74f2f"
     },
-    "controlBindings": {
-      "azimuth": "azimuth_node",
-      "elevator": "elevator_node",
-      "rudder": "rudder_node",
-      "flaps": "flaps_node",
-      "gear": "gear_node"
-    },
-    "animation": {
-      "schema": "transform-v1",
-      "controls": {
-        "azimuth": {
-          "node": "azimuth_node",
-          "axis": "z",
-          "input": "rpm",
-          "continuous": true,
-          "rpmRange": [
-            26,
-            105
-          ]
-        },
-        "elevator": {
-          "node": "elevator_node",
-          "axis": "x",
-          "input": "elevator",
-          "rangeDeg": [
-            -22,
-            22
-          ]
-        },
-        "rudder": {
-          "node": "rudder_node",
-          "axis": "y",
-          "input": "rudder",
-          "rangeDeg": [
-            -25,
-            25
-          ]
-        },
-        "flaps": {
-          "node": "flaps_node",
-          "axis": "x",
-          "input": "flapsIndex",
-          "rangeDeg": [
-            0,
-            12.5
-          ]
-        },
-        "gear": {
-          "node": "gear_node",
-          "axis": "x",
-          "input": "gearState",
-          "rangeDeg": [
-            0,
-            90
-          ]
-        }
-      }
-    }
+    "controlBindings": {}
   },
   "assets": [
     {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "28688a542de24483b121980e6280b29d2474ac273b8e76f92279f396027c8044"
+      "sha256": "461cf9b82e1410615fcf5dcbc4ff65e41ca9e08f6b3c0e13c969d894ace74f2f"
     }
   ]
 }
