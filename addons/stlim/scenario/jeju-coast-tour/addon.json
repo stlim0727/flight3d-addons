@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "stlim/scenario/jeju-coast-tour",
+  "publisher": "stlim",
+  "version": "1.0.0",
+  "coreRange": {
+    "min": "1.8.0",
+    "maxExclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "license": "CC-BY-4.0",
+  "attribution": "제주 해안 투어 by stlim",
+  "scenario": {
+    "id": "jeju-coast-tour",
+    "kind": "tour",
+    "title": "제주 해안 투어",
+    "briefing": "서귀포 해안을 출발해 제주공항에 착륙하는 3단계 투어입니다.",
+    "start": {
+      "frame": "wgs84",
+      "latitude": 33.24,
+      "longitude": 126.42,
+      "altitudeM": 900,
+      "headingDeg": 70
+    },
+    "objectives": [
+      {
+        "id": "seogwipo-coast",
+        "type": "reach-waypoint",
+        "bounds": { "west": 126.55, "south": 33.22, "east": 126.63, "north": 33.31 },
+        "altitudeM": 900
+      },
+      {
+        "id": "jeju-approach",
+        "type": "reach-waypoint",
+        "bounds": { "west": 126.45, "south": 33.45, "east": 126.62, "north": 33.58 },
+        "altitudeM": 600
+      },
+      {
+        "id": "jeju-airport-landing",
+        "type": "land-at",
+        "airportId": "jeju"
+      }
+    ],
+    "events": [
+      {
+        "trigger": "on-objective-complete",
+        "action": "set-briefing",
+        "message": "해안선을 따라 다음 목표로 비행하세요."
+      },
+      {
+        "trigger": "on-objective-complete",
+        "action": "complete-scenario"
+      }
+    ],
+    "requiredAddons": []
+  }
+}
