@@ -40,7 +40,8 @@
           0,
           5,
           12.5
-        ]
+        ],
+        "transonicMachBuffet": 1.15
       },
       "propulsion": {
         "numEngines": 4,
@@ -54,7 +55,14 @@
         "baseFuelFlowKgPerHour": 4800,
         "maxFuelFlowKgPerHour": 25600,
         "fuelCapacityKg": 95680,
-        "momentArmMeters": 1.1
+        "momentArmMeters": 1.1,
+        "cruiseTsfcKgPerDanHour": 1.2,
+        "reheat": {
+          "available": true,
+          "autoFromMach": 0.93,
+          "autoToMach": 1.7,
+          "fuelFlowMultiplier": 1.9
+        }
       },
       "landingGear": {
         "isFixed": false,
@@ -190,6 +198,15 @@
         "hardLandingGThreshold": 1.8,
         "crashGThreshold": 2.8,
         "landingRatings": []
+      },
+      "noseDroop": {
+        "input": "noseDroop",
+        "node": "flaps_node",
+        "rangeDeg": [
+          0,
+          5,
+          12.5
+        ]
       }
     },
     "model": {
