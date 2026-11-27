@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "prNumber": 1,
+  "headSha": "412791825cc444d1631328f6962924a1f36b1ff0",
+  "ciPassed": true,
+  "checkName": "validate-addons",
+  "generatedAt": "2026-11-27T06:57:13.654Z",
+  "catalog": {
+    "schemaVersion": 1,
+    "addons": [
+      {
+        "id": "stlim0727/aircraft/concorde",
+        "version": "1.0.0",
+        "title": "Concorde",
+        "publisher": "stlim0727",
+        "compatible": true,
+        "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-1/stlim0727/aircraft/concorde/addon.json",
+        "sha256": "471548659b765f5dcc32661fad5e115416951ff3a594c4da7acd4406b05618f2"
+      }
+    ]
+  }
+}
