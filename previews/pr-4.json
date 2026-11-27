@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "prNumber": 4,
+  "headSha": "cdf5acad9b662d6945a4758a56b8151616e35313",
+  "ciPassed": false,
+  "checkName": "validate-addons",
+  "updatedAt": "2026-11-27T06:59:18.871Z",
+  "catalog": {
+    "schemaVersion": 1,
+    "addons": []
+  }
+}
