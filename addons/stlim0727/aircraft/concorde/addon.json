@@ -325,7 +325,7 @@
     },
     "model": {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "8e6edba8b4ec768f7b7e2d2fe2671e36510f66933724d0be94e05501a45fa83d"
+      "sha256": "26819f1af040d0bdb4b6181c2d642bfab3163a48c9a46aa9954f25ef4d6919eb"
     },
     "controlBindings": {
       "gear": "nosegear_node",
@@ -371,7 +371,7 @@
   "assets": [
     {
       "url": "https://stlim0727.github.io/flight3d-addons/addons/stlim0727/aircraft/concorde/concorde.glb",
-      "sha256": "8e6edba8b4ec768f7b7e2d2fe2671e36510f66933724d0be94e05501a45fa83d"
+      "sha256": "26819f1af040d0bdb4b6181c2d642bfab3163a48c9a46aa9954f25ef4d6919eb"
     }
   ]
 }
