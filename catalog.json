@@ -2,6 +2,15 @@
   "schemaVersion": 1,
   "addons": [
     {
+      "id": "demo/aircraft/korean-airliners-skin",
+      "version": "1.0.0",
+      "title": "Korean Airliners Skin by demo",
+      "publisher": "demo",
+      "compatible": true,
+      "url": "https://stlim0727.github.io/flight3d-addons/addons/demo/aircraft/korean-airliners-skin/addon.json",
+      "sha256": "006e46cb13d80a0293b8e5101952cb957a2276214d4d8a689bcc8fb643000cec"
+    },
+    {
       "id": "demo/region/kos-gulf-pack",
       "version": "1.0.0",
       "title": "Flight3d addon POC",
