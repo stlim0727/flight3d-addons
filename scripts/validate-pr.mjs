@@ -67,10 +67,6 @@ async function rewriteManifestForPreview(manifest, addonFolder, publishedFolderU
   const cloned = structuredClone(manifest);
   await rewriteLocalResourceUrl(cloned.aircraft?.model, addonFolder, publishedFolderUrl);
   await rewriteLocalResourceUrl(cloned.aircraft?.cockpit, addonFolder, publishedFolderUrl);
-  await rewriteLocalResourceUrl(cloned.aircraft?.livery?.tailEmblem?.map, addonFolder, publishedFolderUrl);
-  for (const spec of Object.values(cloned.aircraft?.livery?.materials ?? {})) {
-    await rewriteLocalResourceUrl(spec?.map, addonFolder, publishedFolderUrl);
-  }
   for (const asset of cloned.assets ?? []) {
     await rewriteLocalResourceUrl(asset, addonFolder, publishedFolderUrl);
   }
@@ -78,6 +74,22 @@ async function rewriteManifestForPreview(manifest, addonFolder, publishedFolderU
     await rewriteLocalResourceUrl(override?.model, addonFolder, publishedFolderUrl);
   }
   return cloned;
+}
+
+function collectDependencyClosure(rootManifest, byId) {
+  const closure = [];
+  const seen = new Set();
+  const visit = manifest => {
+    if (!manifest || seen.has(manifest.id)) return;
+    seen.add(manifest.id);
+    closure.push(manifest);
+    for (const dep of manifest.dependencies ?? []) {
+      const target = byId.get(dep.id);
+      if (target) visit(target);
+    }
+  };
+  visit(rootManifest);
+  return closure;
 }
 
 const manifestPaths = await findManifests(addonsDir);
@@ -116,47 +128,17 @@ if (manifests.length > 0) {
   const byId = new Map();
   for (const { relPath, manifest } of manifests) {
     if (byId.has(manifest.id)) {
-      errors.push(`lint-set: duplicate manifest id ${manifest.id} (${relPath})`);
-      continue;
+      errors.push(`${relPath}: duplicate addon id ${manifest.id}`);
+    } else {
+      byId.set(manifest.id, manifest);
     }
-    byId.set(manifest.id, manifest);
   }
-
-  const seenErrors = new Set();
-  const seenWarnings = new Set();
-  const collectClosure = rootManifest => {
-    const closure = [];
-    const visited = new Set();
-    const visit = current => {
-      if (!current || visited.has(current.id)) return;
-      visited.add(current.id);
-      closure.push(current);
-      for (const dep of current.dependencies ?? []) {
-        if (byId.has(dep.id)) visit(byId.get(dep.id));
-      }
-      for (const req of current.scenario?.requiredAddons ?? []) {
-        if (byId.has(req.id)) visit(byId.get(req.id));
-      }
-    };
-    visit(rootManifest);
-    return closure;
-  };
-
-  for (const { manifest } of manifests) {
-    const lint = lintAddonSet(collectClosure(manifest), { coreVersion });
-    for (const warning of lint.warnings) {
-      if (!seenWarnings.has(warning)) {
-        seenWarnings.add(warning);
-        console.warn(`WARN [lint-set]: ${warning}`);
-      }
-    }
+  for (const { relPath, manifest } of manifests) {
+    const closure = collectDependencyClosure(manifest, byId);
+    const lint = lintAddonSet(closure, { coreVersion });
+    for (const warning of lint.warnings) console.warn(`WARN [${relPath}]: ${warning}`);
     if (!lint.ok) {
-      for (const msg of lint.errors) {
-        if (!seenErrors.has(msg)) {
-          seenErrors.add(msg);
-          errors.push(`lint-set: ${msg}`);
-        }
-      }
+      for (const msg of lint.errors) errors.push(`lint-set [${relPath}]: ${msg}`);
     }
   }
 }
