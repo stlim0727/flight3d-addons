@@ -26,6 +26,11 @@
       {
         "id": "santorini-white-walls",
         "bounds": { "west": 25.36, "south": 36.38, "east": 25.48, "north": 36.48 },
+        "model": {
+          "url": "https://assets.example/santorini/house.glb",
+          "scale": 1.0,
+          "sha256": "70e6b6d1acdd79a5433bba4d69b035f074938058d9718c480ae42024977033a5"
+        },
         "material": { "baseColor": "#f7f3ea", "roofColor": "#2f6fb5" },
         "collision": "replace"
       }
