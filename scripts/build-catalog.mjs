@@ -77,6 +77,10 @@ for (const manifestPath of manifestPaths) {
   const published = structuredClone(manifest);
   await rewriteLocalResourceUrl(published.aircraft?.model, sourceDir, publishedFolderUrl);
   await rewriteLocalResourceUrl(published.aircraft?.cockpit, sourceDir, publishedFolderUrl);
+  await rewriteLocalResourceUrl(published.aircraft?.livery?.tailEmblem?.map, sourceDir, publishedFolderUrl);
+  for (const spec of Object.values(published.aircraft?.livery?.materials ?? {})) {
+    await rewriteLocalResourceUrl(spec?.map, sourceDir, publishedFolderUrl);
+  }
   for (const asset of published.assets ?? []) {
     await rewriteLocalResourceUrl(asset, sourceDir, publishedFolderUrl);
   }
