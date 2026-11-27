@@ -1,0 +1,68 @@
+name: Publish Official Catalog
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          path: source
+
+      - name: Checkout Flight3d contract tools
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: stlim0727/flight3d
+          path: .flight3d
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: gh-pages
+          path: pages
+
+      - name: Setup Node 22
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+
+      - name: Build official catalog
+        run: |
+          node source/scripts/build-catalog.mjs \
+            --addons-dir source/addons \
+            --flight3d-dir .flight3d \
+            --base-url "https://stlim0727.github.io/flight3d-addons" \
+            --out-dir .catalog-dist
+
+      - name: Sync catalog and addons to gh-pages
+        run: |
+          rm -rf pages/addons
+          mkdir -p pages/addons pages/previews
+          cp -R .catalog-dist/addons/. pages/addons/ 2>/dev/null || true
+          cp .catalog-dist/catalog.json pages/catalog.json
+          touch pages/.nojekyll
+
+      - name: Commit and push gh-pages catalog
+        working-directory: pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A catalog.json addons .nojekyll
+          if git diff --cached --quiet; then
+            echo "Catalog unchanged"
+            exit 0
+          fi
+          git commit -m "chore(catalog): publish official addon catalog"
+          git push origin gh-pages
