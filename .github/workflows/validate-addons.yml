@@ -47,12 +47,12 @@ jobs:
             --pr "${{ github.event.pull_request.number || 0 }}" \
             --head-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
             --preview-base-url "https://stlim0727.github.io/flight3d-addons/previews" \
-            --out-dir .preview-bundle
+            --out-dir preview-bundle
 
       - name: Upload verified PR preview artifact
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: pr-preview
-          path: .preview-bundle
+          path: preview-bundle
           retention-days: 7
