@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "prNumber": 7,
+  "headSha": "6f2889ea6e99228b1d5afd77425d3ace800b0e2d",
+  "ciPassed": true,
+  "checkName": "validate-addons",
+  "generatedAt": "2026-11-27T10:13:45.096Z",
+  "catalog": {
+    "schemaVersion": 1,
+    "addons": [
+      {
+        "id": "demo/aircraft/korean-airliners-skin",
+        "version": "1.0.0",
+        "title": "Korean Airliners Skin by demo",
+        "publisher": "demo",
+        "compatible": true,
+        "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-7/demo/aircraft/korean-airliners-skin/addon.json",
+        "sha256": "006e46cb13d80a0293b8e5101952cb957a2276214d4d8a689bcc8fb643000cec"
+      },
+      {
+        "id": "demo/region/kos-gulf-pack",
+        "version": "1.0.0",
+        "title": "Flight3d addon POC",
+        "publisher": "demo",
+        "compatible": true,
+        "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-7/demo/region/kos-gulf-pack/addon.json",
+        "sha256": "d676f194e4c4dd32d4abff05c02b6cd14be6c8a01785abb4319263eab70cef76"
+      },
+      {
+        "id": "stlim/scenario/jeju-coast-tour",
+        "version": "1.0.0",
+        "title": "제주 해안 투어 by stlim",
+        "publisher": "stlim",
+        "compatible": true,
+        "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-7/stlim/scenario/jeju-coast-tour/addon.json",
+        "sha256": "3429af1fa5df59a0995d49f6f007a00fa37196fcb4e4a13a4772065ff25daa1d"
+      },
+      {
+        "id": "stlim0727/aircraft/concorde",
+        "version": "1.0.0",
+        "title": "Concorde",
+        "publisher": "stlim0727",
+        "compatible": true,
+        "url": "https://stlim0727.github.io/flight3d-addons/previews/pr-7/stlim0727/aircraft/concorde/addon.json",
+        "sha256": "f33b1f7ffe49f95a2c0336c2e699c05d49ab93644827c16e7021532d62e6770d"
+      }
+    ]
+  }
+}
